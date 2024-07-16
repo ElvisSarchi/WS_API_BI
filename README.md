@@ -26,4 +26,15 @@ Antes de comenzar, asegúrate de tener Node.js y npm (o pnpm) instalados en tu m
 
    Esto iniciará el servidor y podrás acceder a él en `http://localhost:3000`.
 
+## Variables de entorno
+
+El archivo `.env` contiene las siguientes variables de entorno:
+
+| Variable | Descripción                                      |
+| -------- | ------------------------------------------------ |
+| PORT     | El puerto en el que se levanta el proyecto.      |
+| SECRET   | La configuración para los JWT (JSON Web Tokens). |
+
+Asegúrate de configurar correctamente estas variables en el archivo `.env` antes de iniciar el servidor.
+
 ¡Listo! Ahora puedes comenzar a desarrollar tu backend con login y autenticación por JWT.
