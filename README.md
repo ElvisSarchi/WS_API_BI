@@ -33,7 +33,8 @@ El archivo `.env` contiene las siguientes variables de entorno:
 | Variable | Descripción                                      |
 | -------- | ------------------------------------------------ |
 | PORT     | El puerto en el que se levanta el proyecto.      |
-| SECRET   | La configuración para los JWT (JSON Web Tokens). |
+| CLIENT_ORACLEPATH   | La ubiacin del archvio InstantClient del Oracle |
+| URL_ORACLE   | Conexion String de Oracle ej: localhost/XE |
 
 Asegúrate de configurar correctamente estas variables en el archivo `.env` antes de iniciar el servidor.
 
