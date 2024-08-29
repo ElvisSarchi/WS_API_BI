@@ -8,7 +8,6 @@ export async function getVentas(user, password) {
     a.DETFAC_DESCRIPCION AS DESCRIPCION,a.GRUP_CODIGO,g.GRUP_NOMBRE AS GRUPOPRODUCTO,a.DETFAC_CANTIDAD AS CANTIDAD ,a.BI_TOTALCOSTO AS TOTALCOSTO,a.BI_TOTALVNTA AS TOTALVENTA,
     BI_TOTALVNTASIVA,a.VEN_CODIGO,e.VEN_NOMBRE AS VENDEDOR
     from bi_tmp_ventas a,bi_maetipdoc b, bi_maecliente d,bi_maevendedor e,bi_maegrupo f,bi_maegrupoart g,bi_maeprovincia h,bi_maecanton i,bi_maeparroquia j,bi_maebodega k,BI_MAEMESES m
-    --,bi_maezona c,bi_maeciudad l
     where a.BOD_CODIGO = k.BOD_CODIGO and a.GRUP_CODIGO = g.GRUP_CODIGO 
     and a.VEN_CODIGO = e.VEN_CODIGO and a.BI_TIPO = b.TIPDOC_CODIGO
     and a.CLI_CODIGO = d.CLI_CODIGO and d.CAN_CODIGO = i.CAN_CODIGO
