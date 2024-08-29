@@ -27,13 +27,17 @@ export async function getVentas(user, password) {
   }
 }
 
-export async function getResultados() {
+export async function getResultados(user, password) {
   try {
     const sql = `
     SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.CEN_CODIGO,c.CEN_NOMBRE,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
 FROM BI_ESTADO_RESULTADO a,BI_MAECON b,BI_MAECEN c,BI_MAEMESES m
 where a.CON_CODIGO=b.CON_CODIGO and a.CEN_CODIGO=c.CEN_CODIGO and a.MES = m.MES`
-    const { rows } = await executeQuery(sql)
+    const { rows } = await executeQuery({
+      user,
+      password,
+      query: sql,
+    })
     return rows
   } catch (error) {
     console.error('Error en getResultados: ', error)
@@ -41,14 +45,18 @@ where a.CON_CODIGO=b.CON_CODIGO and a.CEN_CODIGO=c.CEN_CODIGO and a.MES = m.MES`
   }
 }
 
-export async function getBalance() {
+export async function getBalance(user, password) {
   try {
     const sql = `
     SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
 FROM BI_BALANCECOMP_CC a,BI_MAECON b,BI_MAEMESES m
 where a.CON_CODIGO=b.CON_CODIGO and a.MES = m.MES`
 
-    const { rows } = await executeQuery(sql)
+    const { rows } = await executeQuery({
+      user,
+      password,
+      query: sql,
+    })
     return rows
   } catch (error) {
     console.error('Error en getBalance: ', error)
