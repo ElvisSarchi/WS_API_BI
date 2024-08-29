@@ -21,7 +21,14 @@ export async function executeQuery({ user, password, query, params = [] }) {
     const pool = await OracleDB.createPool(poolConfig)
     connection = await pool.getConnection()
     const result = await connection.execute(query, params)
-    return result
+    const rows = result.rows.map(row => {
+      const obj = {}
+      result.metaData.forEach((column, index) => {
+      obj[column.name] = row[index]
+      })
+      return obj
+    })
+    return rows
   } catch (error) {
     console.error('Error al ejecutar la consulta: ', error)
     return {

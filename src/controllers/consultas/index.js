@@ -15,7 +15,7 @@ export async function getVentas(user, password) {
     and d.GRU_CODIGO = f.GRU_CODIGO and d.PARR_CODIGO = j.PARR_CODIGO
     and d.PROV_CODIGO = h.PROV_CODIGO and a.BI_MES = m.MES
     `
-    const { rows } = await executeQuery({
+    const rows = await executeQuery({
       user,
       password,
       query: sql,
@@ -33,7 +33,7 @@ export async function getResultados(user, password) {
     SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.CEN_CODIGO,c.CEN_NOMBRE,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
 FROM BI_ESTADO_RESULTADO a,BI_MAECON b,BI_MAECEN c,BI_MAEMESES m
 where a.CON_CODIGO=b.CON_CODIGO and a.CEN_CODIGO=c.CEN_CODIGO and a.MES = m.MES`
-    const { rows } = await executeQuery({
+    const rows = await executeQuery({
       user,
       password,
       query: sql,
@@ -52,7 +52,7 @@ export async function getBalance(user, password) {
 FROM BI_BALANCECOMP_CC a,BI_MAECON b,BI_MAEMESES m
 where a.CON_CODIGO=b.CON_CODIGO and a.MES = m.MES`
 
-    const { rows } = await executeQuery({
+    const rows = await executeQuery({
       user,
       password,
       query: sql,
