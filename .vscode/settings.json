@@ -1,12 +1,9 @@
 {
+  "editor.formatOnSave": false,
   "files.autoSave": "off",
   "javascript.format.enable": false,
   "eslint.enable": true,
-  "eslint.format.enable": true,
   "eslint.alwaysShowStatus": true,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.semi": false,
   "eslint.options": {
     "extensions": [".html", ".js", ".jsx"]
   },

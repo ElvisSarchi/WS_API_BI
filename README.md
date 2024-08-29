@@ -1,4 +1,4 @@
-# Base_Backend
+# WS_API_BI
 
 Configuracion para conexion a Oracle de consulta de tabla para el BI
 
