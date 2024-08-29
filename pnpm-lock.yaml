@@ -75,6 +75,9 @@ importers:
       '@babel/preset-env':
         specifier: ^7.24.8
         version: 7.24.8(@babel/core@7.24.9)
+      '@eslint/js':
+        specifier: ^9.9.1
+        version: 9.9.1
       babel-eslint:
         specifier: ^10.1.0
         version: 10.1.0(eslint@9.7.0)
@@ -87,6 +90,9 @@ importers:
       eslint-plugin-prettier:
         specifier: ^5.2.1
         version: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.7.0))(eslint@9.7.0)(prettier@3.3.3)
+      globals:
+        specifier: ^15.9.0
+        version: 15.9.0
       nodemon:
         specifier: ^3.1.4
         version: 3.1.4
@@ -724,6 +730,10 @@ packages:
 
   '@eslint/js@9.7.0':
     resolution: {integrity: sha512-ChuWDQenef8OSFnvuxv0TCVxEwmu3+hPNKvM9B34qpM0rDRbjL8t5QkQeHHeAfsKQjuH9wS82WeCi1J/owatng==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/js@9.9.1':
+    resolution: {integrity: sha512-xIDQRsfg5hNBqHz04H1R3scSVwmI+KUbqjsQKHKQ1DAUSaUjYPReZZmS/5PNiKu1fUvzDd6H7DEDKACSEhu+TQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.4':
@@ -1531,6 +1541,10 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+
+  globals@15.9.0:
+    resolution: {integrity: sha512-SmSKyLLKFbSr6rptvP8izbyxJL4ILwqO9Jg23UA0sDlGlu58V59D1//I3vlc0KJphVdUR7vMjHIplYnzBxorQA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -3358,6 +3372,8 @@ snapshots:
 
   '@eslint/js@9.7.0': {}
 
+  '@eslint/js@9.9.1': {}
+
   '@eslint/object-schema@2.1.4': {}
 
   '@humanwhocodes/config-array@0.11.14':
@@ -4455,6 +4471,8 @@ snapshots:
       type-fest: 0.20.2
 
   globals@14.0.0: {}
+
+  globals@15.9.0: {}
 
   globalthis@1.0.4:
     dependencies:

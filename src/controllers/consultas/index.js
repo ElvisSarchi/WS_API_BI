@@ -1,6 +1,6 @@
-import { executeQuery } from "../../DB"
+import { executeQuery } from '../../DB'
 
-export async function getVentas() {
+export async function getVentas(user, password) {
   try {
     const sql = `
     select a.BI_FECHA AS FECHA,a.BI_ANIO AS ANIO,m.NOMBRE AS MES,b.TIPDOC_NOMBRE AS TIPODOCUMENTO,a.BOD_CODIGO,k.BOD_NOMBRE AS BODEGA,a.CLI_CODIGO,d.CLI_NOMBRE AS CLIENTE,
@@ -15,10 +15,43 @@ export async function getVentas() {
     and d.GRU_CODIGO = f.GRU_CODIGO and d.PARR_CODIGO = j.PARR_CODIGO
     and d.PROV_CODIGO = h.PROV_CODIGO and a.BI_MES = m.MES
     `
+    const { rows } = await executeQuery({
+      user,
+      password,
+      query: sql,
+    })
+    return rows
+  } catch (error) {
+    console.error('Error en getVentas: ', error)
+    return []
+  }
+}
+
+export async function getResultados() {
+  try {
+    const sql = `
+    SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.CEN_CODIGO,c.CEN_NOMBRE,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
+FROM BI_ESTADO_RESULTADO a,BI_MAECON b,BI_MAECEN c,BI_MAEMESES m
+where a.CON_CODIGO=b.CON_CODIGO and a.CEN_CODIGO=c.CEN_CODIGO and a.MES = m.MES`
     const { rows } = await executeQuery(sql)
     return rows
   } catch (error) {
-    console.error("Error en getVentas: ", error)
+    console.error('Error en getResultados: ', error)
+    return []
+  }
+}
+
+export async function getBalance() {
+  try {
+    const sql = `
+    SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
+FROM BI_BALANCECOMP_CC a,BI_MAECON b,BI_MAEMESES m
+where a.CON_CODIGO=b.CON_CODIGO and a.MES = m.MES`
+
+    const { rows } = await executeQuery(sql)
+    return rows
+  } catch (error) {
+    console.error('Error en getBalance: ', error)
     return []
   }
 }
