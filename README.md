@@ -1,6 +1,6 @@
 # Base_Backend
 
-Configuracion basica de un backend con login y autenticacion por jws
+Configuracion para conexion a Oracle de consulta de tabla para el BI
 
 ## Instrucciones de inicio
 
