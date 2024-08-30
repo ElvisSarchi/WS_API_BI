@@ -8,7 +8,7 @@ export async function desencrypt(encrypt) {
     const decrypted = crypto.privateDecrypt(
       {
         key: privateKey,
-        passphrase: 'SaciWeb2021',
+        passphrase: process.env.SECRET,
       },
       Buffer.from(encrypt, 'base64')
     )
