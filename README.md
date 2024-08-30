@@ -15,8 +15,9 @@ Antes de comenzar, asegúrate de tener Node.js y npm (o pnpm) instalados en tu m
    # o
    pnpm install
    ```
+3. Se necesita la private.pem que este en la ubicacion /src/controllers/encrypt/private.pem
 
-3. Una vez que se hayan instalado las dependencias, puedes iniciar el servidor ejecutando el siguiente comando:
+4. Una vez que se hayan instalado las dependencias, puedes iniciar el servidor ejecutando el siguiente comando:
 
    ```bash
    npm start
@@ -33,6 +34,7 @@ El archivo `.env` contiene las siguientes variables de entorno:
 | Variable | Descripción                                      |
 | -------- | ------------------------------------------------ |
 | PORT     | El puerto en el que se levanta el proyecto.      |
+| SECRET     | La clave secreta para desencriptar     |
 | CLIENT_ORACLEPATH   | La ubiacin del archvio InstantClient del Oracle |
 | URL_ORACLE   | Conexion String de Oracle ej: localhost/XE |
 
