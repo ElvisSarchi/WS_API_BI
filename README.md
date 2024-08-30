@@ -40,4 +40,3 @@ El archivo `.env` contiene las siguientes variables de entorno:
 
 Asegúrate de configurar correctamente estas variables en el archivo `.env` antes de iniciar el servidor.
 
-¡Listo! Ahora puedes comenzar a desarrollar tu backend con login y autenticación por JWT.
