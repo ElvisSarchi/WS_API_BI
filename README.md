@@ -15,7 +15,7 @@ Antes de comenzar, asegúrate de tener Node.js y npm (o pnpm) instalados en tu m
    # o
    pnpm install
    ```
-3. Se necesita la private.pem que este en la ubicacion /src/controllers/encrypt/private.pem
+3. Se necesita la private.pem que este en la ubicacion `/src/controllers/encrypt/private.pem`
 
 4. Una vez que se hayan instalado las dependencias, puedes iniciar el servidor ejecutando el siguiente comando:
 
@@ -25,7 +25,7 @@ Antes de comenzar, asegúrate de tener Node.js y npm (o pnpm) instalados en tu m
    pnpm start
    ```
 
-   Esto iniciará el servidor y podrás acceder a él en `http://localhost:3000`.
+   Esto iniciará el servidor y podrás acceder a él en `http://localhost:PORT`.
 
 ## Variables de entorno
 
