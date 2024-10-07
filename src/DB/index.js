@@ -1,6 +1,7 @@
-import OracleDB from 'oracledb'
+require('dotenv').config()
+const OracleDB = require('oracledb')
 
-export async function executeQuery({ user, password, query, params = [] }) {
+async function executeQuery({ user, password, query, params = [] }) {
   let connection
   try {
     const poolConfig = {
@@ -43,4 +44,8 @@ export async function executeQuery({ user, password, query, params = [] }) {
       }
     }
   }
+}
+
+module.exports = {
+  executeQuery,
 }

@@ -1,6 +1,6 @@
-import { executeQuery } from '../../DB'
+const { executeQuery } = require('../../DB')
 
-export async function getVentas(user, password) {
+async function getVentas(user, password) {
   try {
     const sql = `
     select a.BI_FECHA AS FECHA,a.BI_ANIO AS ANIO,m.NOMBRE AS MES,b.TIPDOC_NOMBRE AS TIPODOCUMENTO,a.BOD_CODIGO,k.BOD_NOMBRE AS BODEGA,a.CLI_CODIGO,d.CLI_NOMBRE AS CLIENTE,
@@ -26,7 +26,7 @@ and d.PROV_CODIGO = h.PROV_CODIGO and a.BI_MES = m.MES
   }
 }
 
-export async function getResultados(user, password) {
+async function getResultados(user, password) {
   try {
     const sql = `
     SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.CEN_CODIGO,c.CEN_NOMBRE,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
@@ -44,7 +44,7 @@ where a.CON_CODIGO=b.CON_CODIGO and a.CEN_CODIGO=c.CEN_CODIGO and a.MES = m.MES`
   }
 }
 
-export async function getBalance(user, password) {
+async function getBalance(user, password) {
   try {
     const sql = `
     SELECT a.CON_CODIGO,b.CON_NOMBRE,b.CON_NIVEL,a.ANIO,m.NOMBRE,a.IMPORTE,a.FECHA 
@@ -61,4 +61,10 @@ where a.CON_CODIGO=b.CON_CODIGO and a.MES = m.MES`
     console.error('Error en getBalance: ', error)
     return []
   }
+}
+
+module.exports = {
+  getVentas,
+  getResultados,
+  getBalance,
 }
