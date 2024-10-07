@@ -6,16 +6,20 @@ RUN apt-get update && apt-get install -y \
     lsb-release && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
-    apt-get clean
+    apt-get clean && \
+    node --version && \
+    npm --version && \
+    npm install -g pnpm && \
+    pnpm --version
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN pnpm install
 
 COPY . .
 
-EXPOSE 3005
+EXPOSE 3010
 
-CMD [ "npm", "start" ]
+CMD [ "pnpm", "start" ]
