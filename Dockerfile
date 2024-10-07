@@ -10,7 +10,12 @@ RUN apt-get update && apt-get install -y \
     node --version && \
     npm --version && \
     npm install -g pnpm && \
-    pnpm --version
+    pnpm --version && \
+    curl -o /opt/oracle-instantclient.zip "https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linux.x64-19.18.0.0.0dbru.zip" && \
+    unzip /opt/oracle-instantclient.zip -d /opt && \
+    ls -la /opt && \
+    ls -la /opt/instantclient_19_18 && \
+    rm /opt/oracle-instantclient.zip
 
 WORKDIR /usr/src/app
 
