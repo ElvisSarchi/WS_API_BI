@@ -6,11 +6,11 @@ RUN apt-get update && apt-get install -y \
     curl \
     gnupg \
     lsb-release \
-    unzip && \  # Asegúrate de tener unzip instalado para extraer el archivo ZIP
+    unzip && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*  # Limpia la cache de apt para ahorrar espacio
+    rm -rf /var/lib/apt/lists/*  
 
 # Verifica las versiones de Node.js y npm
 RUN node --version && npm --version
