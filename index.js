@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const compression = require('compression')
 const logger = require('morgan')
 const { desencrypt } = require('./src/controllers/encrypt')
-const { getBalance, getResultados, getVentas } = require('./src/controllers/consultas')
+const { getBalance, getResultados, getVentas, getTRNRESUMEN } = require('./src/controllers/consultas')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -77,6 +77,19 @@ app.get(`/balance`, validateToken, async (req, res) => {
     const split = decrypted.split('%')
     const [identificacion, user, password] = split
     const resultado = await getBalance(user, password)
+    res.status(200).json(resultado)
+  } catch (error) {
+    console.error('Error en /: ', error)
+    res.status(500).json({ message: 'Internal server error' })
+  }
+})
+app.get(`/cxc_trnres`, validateToken, async (req, res) => {
+  try {
+    const clave = req.headers.clave
+    const decrypted = await desencrypt(clave)
+    const split = decrypted.split('%')
+    const [identificacion, user, password] = split
+    const resultado = await getTRNRESUMEN(user, password)
     res.status(200).json(resultado)
   } catch (error) {
     console.error('Error en /: ', error)

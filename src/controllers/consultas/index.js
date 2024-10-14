@@ -62,9 +62,25 @@ where a.CON_CODIGO=b.CON_CODIGO and a.MES = m.MES`
     return []
   }
 }
+async function getTRNRESUMEN(user, password) {
+  try{
+    const sql = `SELECT TRNCOBRO_NRODOC,  TRNCOBRO_NROCOMPROBANTE,  TRNCOBRO_REFERENCIA, TRNCOBRO_TIPODOC,  TRNCOBRO_FECHATRN,  TRNCOBRO_CONCEPTO,
+    TRNCOBRO_IMPORTE,  TRNCOBRO_FECHAVENCE, APLORG_CODIGO,  TRNCOBRO_REFERENCIAEXTERNA,  CLI_CODIGO,  VEN_CODIGO,  BOD_CODIGO  FROM CXC_TRNRESUMEN`
+    const rows = await executeQuery({
+      user,
+      password,
+      query: sql,
+    })
+    return rows
+  } catch (error) {
+    console.error('Error en getTRNRESUMEN: ', error)
+    return []
+  }
+}
 
 module.exports = {
   getVentas,
   getResultados,
   getBalance,
+  getTRNRESUMEN,
 }
